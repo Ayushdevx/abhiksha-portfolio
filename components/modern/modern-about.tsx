@@ -21,7 +21,7 @@ export const ModernAbout = () => {
   ];
 
   const stats = [
-    { number: "2024", label: "Expected Graduation" },
+    { number: "2028", label: "Expected Graduation" },
     { number: "3.8+", label: "GPA Achievement" },
     { number: "15+", label: "Projects Completed" },
     { number: "5+", label: "Technologies Mastered" },
@@ -115,7 +115,7 @@ export const ModernAbout = () => {
                   </div>
                   <div className="flex items-center space-x-3 text-gray-300">
                     <CalendarIcon className="w-5 h-5 text-yellow-400" />
-                    <span>Graduating 2024</span>
+                    <span>Graduating 2028</span>
                   </div>
                 </div>
               </div>
