@@ -96,7 +96,7 @@ export const Testimonials = () => {
 
                 {/* Content */}
                 <blockquote className="text-gray-300 leading-relaxed mb-6 italic">
-                  "{testimonial.content}"
+                  &ldquo;{testimonial.content}&rdquo;
                 </blockquote>
 
                 {/* Author info */}
@@ -138,7 +138,7 @@ export const Testimonials = () => {
         className="mt-16 text-center"
       >
         <p className="text-gray-300 mb-6 text-lg">
-          Ready to work together? Let's create something amazing!
+          Ready to work together? Let&apos;s create something amazing!
         </p>
         <a
           href="#contact"

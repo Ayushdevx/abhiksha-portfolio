@@ -51,9 +51,9 @@ export const ModernNavbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           scrolled 
-            ? "bg-black/80 backdrop-blur-lg border-b border-purple-500/20 shadow-lg shadow-purple-500/10" 
+            ? "bg-black/20 backdrop-blur-xl border-b border-purple-500/10 shadow-2xl shadow-purple-500/5" 
             : "bg-transparent"
         }`}
         initial={{ y: -100 }}
@@ -61,30 +61,30 @@ export const ModernNavbar = () => {
         transition={{ duration: 0.8 }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <motion.div
               className="flex items-center space-x-3"
               whileHover={{ scale: 1.05 }}
             >
               <Link href="#" className="flex items-center space-x-3">
-                <div className="relative">
+                <div className="relative group">
                   <motion.div
-                    className="w-10 h-10 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-sm"
-                    whileHover={{ rotate: 360 }}
+                    className="w-12 h-12 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 rounded-xl flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-purple-500/25"
+                    whileHover={{ rotate: 360, scale: 1.1 }}
                     transition={{ duration: 0.8 }}
                   >
                     AB
                   </motion.div>
                   <motion.div
-                    className="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full opacity-20"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute inset-0 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 rounded-xl opacity-20 blur-lg"
+                    animate={{ scale: [1, 1.3, 1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   />
                 </div>
                 <div className="hidden md:block">
                   <motion.span 
-                    className="text-white font-semibold text-lg"
+                    className="text-white font-bold text-xl bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
@@ -92,7 +92,7 @@ export const ModernNavbar = () => {
                     Abhiksha Bakshi
                   </motion.span>
                   <motion.p 
-                    className="text-purple-400 text-xs"
+                    className="text-purple-400 text-sm font-medium"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 }}
@@ -104,7 +104,7 @@ export const ModernNavbar = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center bg-white/5 backdrop-blur-xl rounded-full px-8 py-3 border border-white/10">
               {NAV_LINKS.map((link, index) => (
                 <motion.div
                   key={link.title}
@@ -114,44 +114,37 @@ export const ModernNavbar = () => {
                 >
                   <Link
                     href={link.link}
-                    className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                    className={`relative px-6 py-2 text-sm font-medium transition-all duration-300 rounded-full ${
                       activeSection === link.link.substring(1)
-                        ? "text-purple-400"
-                        : "text-gray-300 hover:text-white"
+                        ? "text-white bg-gradient-to-r from-purple-500 to-cyan-500 shadow-lg shadow-purple-500/25"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
                     }`}
                   >
                     {link.title}
-                    {activeSection === link.link.substring(1) && (
-                      <motion.div
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 to-cyan-500"
-                        layoutId="activeTab"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                      />
-                    )}
                   </Link>
                 </motion.div>
               ))}
             </div>
 
             {/* Action Buttons */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-3">
               <motion.button
                 onClick={downloadCV}
-                className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-cyan-700 transition-all duration-300"
+                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.6 }}
               >
-                <ArrowDownTrayIcon className="w-4 h-4" />
-                <span>Download CV</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-cyan-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <ArrowDownTrayIcon className="w-4 h-4 relative z-10" />
+                <span className="relative z-10">Download CV</span>
               </motion.button>
 
               <motion.a
                 href="mailto:abhiksha.bakshi2024@vitstudent.ac.in"
-                className="p-2 text-gray-400 hover:text-purple-400 transition-colors duration-300"
+                className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -162,7 +155,7 @@ export const ModernNavbar = () => {
 
               <motion.a
                 href="tel:+919619796620"
-                className="p-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300"
+                className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -174,7 +167,7 @@ export const ModernNavbar = () => {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 text-white"
+              className="md:hidden p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-white/10 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
@@ -199,7 +192,7 @@ export const ModernNavbar = () => {
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-lg" />
             <motion.div
-              className="relative bg-gray-900/95 backdrop-blur-lg border-r border-purple-500/20 w-80 h-full p-6"
+              className="relative bg-black/30 backdrop-blur-2xl border-r border-purple-500/10 w-80 h-full p-6 shadow-2xl"
               initial={{ x: -320 }}
               animate={{ x: 0 }}
               exit={{ x: -320 }}
@@ -223,13 +216,13 @@ export const ModernNavbar = () => {
                   </motion.div>
                 ))}
 
-                <div className="pt-6 border-t border-gray-700">
+                <div className="pt-6 border-t border-white/10">
                   <motion.button
                     onClick={() => {
                       downloadCV();
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-purple-600 to-cyan-600 text-white rounded-lg font-medium"
+                    className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 text-white rounded-full font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -245,7 +238,7 @@ export const ModernNavbar = () => {
                       href={link}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="p-3 bg-gray-800 rounded-lg text-purple-400 hover:text-white hover:bg-purple-600 transition-all duration-300"
+                      className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-purple-400 hover:text-white hover:bg-purple-500/20 transition-all duration-300"
                       whileHover={{ scale: 1.1 }}
                     >
                       <Icon className="w-5 h-5" />

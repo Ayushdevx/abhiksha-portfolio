@@ -31,7 +31,7 @@ export const HeroContent = () => {
       setCurrentText((prev) => (prev + 1) % rotatingTexts.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, []);
+  }, [rotatingTexts.length]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -62,15 +62,15 @@ export const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 mt-40 w-full z-[20] relative min-h-screen"
+      className="flex flex-row items-center justify-center px-20 w-full z-[20] relative h-screen"
       onMouseMove={handleMouseMove}
     >
       {/* Enhanced Particle Background */}
       <ParticleBackground />
       
-      {/* Interactive gradient overlay */}
+      {/* Interactive gradient overlay - Fixed positioning */}
       <div 
-        className="absolute inset-0 pointer-events-none"
+        className="fixed inset-0 pointer-events-none -z-5"
         style={{
           background: `radial-gradient(circle at ${(mousePosition.x + 1) * 50}% ${(mousePosition.y + 1) * 50}%, 
                       rgba(139, 92, 246, 0.1) 0%, 
@@ -79,8 +79,8 @@ export const HeroContent = () => {
         }}
       />
 
-      {/* Floating geometric shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {/* Floating geometric shapes - Fixed positioning */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none -z-5">
         {[...Array(8)].map((_, i) => (
           <motion.div
             key={i}

@@ -133,7 +133,7 @@ export const ModernAbout = () => {
               <div className="space-y-4 text-gray-300 leading-relaxed">
                 <p>
                   As an Electronics Engineering student specializing in VLSI at VIT Chennai, 
-                  I'm passionate about the intersection of hardware and innovation. My journey 
+                  I&apos;m passionate about the intersection of hardware and innovation. My journey 
                   began with curiosity about how electronic devices work at the most fundamental level.
                 </p>
                 <p>
@@ -142,7 +142,7 @@ export const ModernAbout = () => {
                   My goal is to contribute to the next generation of electronic innovations.
                 </p>
                 <p>
-                  When I'm not designing circuits or coding, you'll find me exploring new 
+                  When I&apos;m not designing circuits or coding, you&apos;ll find me exploring new 
                   technologies, working on personal projects, or collaborating with fellow 
                   engineers to solve real-world problems.
                 </p>
@@ -179,10 +179,10 @@ export const ModernAbout = () => {
               className="bg-gradient-to-r from-purple-600/20 to-cyan-600/20 backdrop-blur-sm border border-purple-500/30 rounded-lg p-6"
               whileHover={{ scale: 1.02 }}
             >
-              <h4 className="text-lg font-bold text-white mb-2">Let's Connect!</h4>
+              <h4 className="text-lg font-bold text-white mb-2">Let&apos;s Connect!</h4>
               <p className="text-gray-300 mb-4">
                 Interested in collaborating or discussing electronics engineering? 
-                I'd love to hear from you!
+                I&apos;d love to hear from you!
               </p>
               <div className="flex space-x-4">
                 <motion.a

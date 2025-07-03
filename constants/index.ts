@@ -416,7 +416,7 @@ export const ELECTRONICS_SKILLS = [
     category: "Systems",
   },
   {
-    skill_name: "Java",
+    skill_name: "C/C++",
     description: "Programming for embedded and system applications",
     category: "Programming",
   },

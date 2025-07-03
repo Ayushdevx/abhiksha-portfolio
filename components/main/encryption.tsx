@@ -154,8 +154,8 @@ export const Encryption = () => {
         className="mt-16 text-center z-10"
       >
         <p className="text-gray-300 text-lg italic max-w-2xl mx-auto">
-          "Engineering the future with secure, innovative solutions that bridge the gap between 
-          theoretical knowledge and practical excellence."
+          &ldquo;Engineering the future with secure, innovative solutions that bridge the gap between 
+          theoretical knowledge and practical excellence.&rdquo;
         </p>
       </motion.div>
     </div>

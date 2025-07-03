@@ -68,9 +68,12 @@ export const Achievements = () => {
     >
       {/* Background effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-purple-500/5 rounded-full blur-3xl animate-pulse-slow" />
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-pulse-slow delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl animate-pulse-slow delay-2000" />
+        <div className="absolute top-20 left-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl animate-pulse-slow delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse-slow delay-2000" />
+        
+        {/* Modern grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,black_60%,transparent_100%)]" />
       </div>
 
       <motion.div
@@ -101,7 +104,7 @@ export const Achievements = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-3 bg-gradient-to-r from-[rgba(3,0,20,0.6)] to-[rgba(3,0,20,0.4)] backdrop-blur-sm border border-[rgba(112,66,248,0.3)] rounded-full px-6 py-3 hover:border-[rgba(112,66,248,0.6)] transition-all duration-300"
+            className="flex items-center gap-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full px-6 py-3 hover:border-purple-500/30 hover:bg-purple-500/10 transition-all duration-300"
           >
             <highlight.icon className="h-5 w-5 text-purple-400" />
             <span className="text-white font-medium">{highlight.text}</span>
@@ -121,7 +124,10 @@ export const Achievements = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
             >
-              <div className="relative bg-gradient-to-br from-[rgba(3,0,20,0.8)] to-[rgba(3,0,20,0.6)] backdrop-blur-sm border border-[rgba(112,66,248,0.3)] rounded-xl p-6 hover:border-[rgba(112,66,248,0.6)] transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/20 text-center h-full">
+              <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-xl border border-white/10 rounded-2xl p-6 hover:border-purple-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10 text-center h-full group/card overflow-hidden">
+                {/* Animated background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-transparent to-cyan-500/5 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" />
+                
                 {/* Icon */}
                 <div className="relative mb-6">
                   <div className={`inline-flex p-4 rounded-full bg-gradient-to-br ${achievement.color} group-hover:scale-110 transition-transform duration-300`}>
@@ -142,7 +148,7 @@ export const Achievements = () => {
                 </div>
 
                 {/* Content */}
-                <div>
+                <div className="relative z-10">
                   <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-purple-400 transition-colors duration-300">
                     {achievement.title}
                   </h3>
@@ -168,20 +174,21 @@ export const Achievements = () => {
         className="mt-16 text-center"
       >
         <p className="text-gray-300 mb-6 text-lg">
-          Passionate about pushing the boundaries of what's possible in electronics
+          Passionate about pushing the boundaries of what&apos;s possible in electronics
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="#projects"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/25"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 relative overflow-hidden group"
           >
-            View My Work
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-cyan-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <span className="relative z-10">View My Work</span>
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-3 bg-transparent border-2 border-purple-500 text-purple-400 px-8 py-4 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 hover:scale-105"
+            className="inline-flex items-center gap-3 bg-white/5 backdrop-blur-xl border-2 border-purple-500/50 text-purple-400 px-8 py-4 rounded-full font-semibold hover:bg-purple-500 hover:text-white hover:border-purple-500 transition-all duration-300 hover:scale-105"
           >
-            Let's Connect
+            Let&apos;s Connect
           </a>
         </div>
       </motion.div>

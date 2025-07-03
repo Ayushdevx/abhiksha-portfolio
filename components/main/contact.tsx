@@ -76,10 +76,10 @@ export const Contact = () => {
         className="text-center mb-16"
       >
         <h1 className="text-[50px] font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 mb-4">
-          Let's Connect
+          Let&apos;s Connect
         </h1>
         <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-          Ready to collaborate on exciting electronics and VLSI projects? Let's build something amazing together!
+          Ready to collaborate on exciting electronics and VLSI projects? Let&apos;s build something amazing together!
         </p>
       </motion.div>
 
@@ -212,11 +212,11 @@ export const Contact = () => {
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-1 h-8 bg-gradient-to-b from-pink-500 to-purple-500 rounded-full" />
-                  <h3 className="text-xl font-semibold text-white">Let's Collaborate</h3>
+                  <h3 className="text-xl font-semibold text-white">Let&apos;s Collaborate</h3>
                 </div>
                 <p className="text-gray-300 leading-relaxed pl-4">
                   Ready to discuss collaboration opportunities, innovative projects, or share ideas about 
-                  electronics and technology? I'm always excited to connect with fellow tech enthusiasts!
+                  electronics and technology? I&apos;m always excited to connect with fellow tech enthusiasts!
                 </p>
               </motion.div>
 

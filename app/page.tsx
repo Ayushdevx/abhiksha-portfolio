@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <main className="h-full w-full relative">
       <ParticleBackground />
+      <Hero />
       <div className="flex flex-col gap-20 relative z-10">
-        <Hero />
         <ModernAbout />
         <Achievements />
         <ElectronicsSkills />
