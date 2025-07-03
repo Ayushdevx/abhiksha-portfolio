@@ -62,7 +62,7 @@ export const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center px-20 w-full z-[20] relative h-screen"
+      className="flex flex-col lg:flex-row items-center justify-center px-4 sm:px-8 lg:px-20 w-full z-[20] relative h-screen"
       onMouseMove={handleMouseMove}
     >
       {/* Enhanced Particle Background */}
@@ -106,10 +106,10 @@ export const HeroContent = () => {
         ))}
       </div>
 
-      <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start relative z-10">
+      <div className="h-full w-full flex flex-col gap-3 lg:gap-5 justify-center m-auto text-start lg:text-start text-center relative z-10 max-w-4xl">
         <motion.div
           variants={slideInFromTop}
-          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] backdrop-blur-sm relative overflow-hidden group cursor-pointer"
+          className="Welcome-box py-[8px] px-[7px] border border-[#7042f88b] opacity-[0.9] backdrop-blur-sm relative overflow-hidden group cursor-pointer mx-auto lg:mx-0"
           whileHover={{ scale: 1.05, borderColor: "#7042f8" }}
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
@@ -136,7 +136,7 @@ export const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl text-bold text-white max-w-[600px] w-auto h-auto relative"
+          className="flex flex-col gap-3 lg:gap-6 mt-4 lg:mt-6 text-3xl sm:text-4xl lg:text-6xl text-bold text-white max-w-full lg:max-w-[600px] w-auto h-auto relative"
           style={{
             transform: `perspective(1000px) rotateX(${mousePosition.y * 5}deg) rotateY(${mousePosition.x * 5}deg)`
           }}
@@ -269,35 +269,49 @@ export const HeroContent = () => {
 
       <motion.div
         variants={slideInFromRight(0.8)}
-        className="w-full h-full flex justify-center items-center relative"
+        className="w-full h-full flex justify-center items-center relative mt-8 lg:mt-0"
         style={{
           transform: `perspective(1000px) rotateX(${-mousePosition.y * 3}deg) rotateY(${-mousePosition.x * 3}deg)`
         }}
       >
-        <div className="relative group">
-          {/* Animated rings around profile */}
+        <div className="relative group max-w-md lg:max-w-none">
+          {/* Animated rings around profile - Mobile responsive */}
           <motion.div
             className="absolute inset-0 rounded-full border-2 border-purple-500/30"
             animate={{ rotate: 360, scale: [1, 1.1, 1] }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-            style={{ width: "200px", height: "200px", top: "20px", left: "50%", transform: "translateX(-50%)" }}
+            style={{ 
+              width: "min(200px, 80vw)", 
+              height: "min(200px, 80vw)", 
+              top: "20px", 
+              left: "50%", 
+              transform: "translateX(-50%)" 
+            }}
           />
           <motion.div
             className="absolute inset-0 rounded-full border border-cyan-500/20"
             animate={{ rotate: -360, scale: [1.1, 1, 1.1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-            style={{ width: "220px", height: "220px", top: "10px", left: "50%", transform: "translateX(-50%)" }}
+            style={{ 
+              width: "min(220px, 85vw)", 
+              height: "min(220px, 85vw)", 
+              top: "10px", 
+              left: "50%", 
+              transform: "translateX(-50%)" 
+            }}
           />
           
-          {/* Enhanced Profile Picture */}
+          {/* Enhanced Profile Picture - Mobile responsive */}
           <motion.div 
             className="absolute top-10 left-1/2 transform -translate-x-1/2 z-10 group-hover:z-20"
             whileHover={{ scale: 1.1, rotateY: 15 }}
             animate={pulseAnimation}
           >
             <motion.div 
-              className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-purple-500 shadow-2xl group-hover:border-cyan-400 transition-all duration-500"
+              className="relative rounded-full overflow-hidden border-4 border-purple-500 shadow-2xl group-hover:border-cyan-400 transition-all duration-500"
               style={{
+                width: "min(160px, 60vw)",
+                height: "min(160px, 60vw)",
                 boxShadow: `0 0 30px rgba(139, 92, 246, 0.5), 
                            0 0 60px rgba(139, 92, 246, 0.3),
                            inset 0 0 20px rgba(139, 92, 246, 0.1)`
@@ -332,10 +346,11 @@ export const HeroContent = () => {
             </motion.div>
           </motion.div>
           
-          {/* Interactive Background SVG */}
+          {/* Interactive Background SVG - Mobile responsive */}
           <motion.div
             whileHover={{ scale: 1.05, rotateZ: 2 }}
             transition={{ duration: 0.3 }}
+            className="relative"
           >
             <Image
               src="/hero-bg.svg"
@@ -343,36 +358,43 @@ export const HeroContent = () => {
               height={650}
               width={650}
               draggable={false}
-              className="select-none opacity-80 group-hover:opacity-100 transition-opacity duration-500"
+              className="select-none opacity-80 group-hover:opacity-100 transition-opacity duration-500 w-full h-auto max-w-lg lg:max-w-none"
             />
           </motion.div>
           
-          {/* Animated tech symbols floating around */}
-          {[
-            { symbol: "⚡", delay: 0, radius: 180 },
-            { symbol: "🔬", delay: 1, radius: 200 },
-            { symbol: "💻", delay: 2, radius: 160 },
-            { symbol: "🔧", delay: 3, radius: 220 },
-            { symbol: "⚙️", delay: 4, radius: 190 }
-          ].map((item, index) => (
-            <motion.div
-              key={index}
-              className="absolute text-2xl opacity-60 group-hover:opacity-100 pointer-events-none"
-              animate={{
-                rotate: 360,
-                x: Math.cos(index * 72 * Math.PI / 180) * item.radius,
-                y: Math.sin(index * 72 * Math.PI / 180) * item.radius,
-              }}
-              transition={{
-                duration: 10 + item.delay,
-                repeat: Infinity,
-                ease: "linear",
-                delay: item.delay
-              }}
-              style={{
-                left: "50%",
-                top: "50%",
-                transformOrigin: "center"
+          {/* Animated tech symbols floating around - Hidden on mobile for better performance */}
+          <div className="hidden lg:block">
+            {[
+              { symbol: "⚡", delay: 0, radius: 180 },
+              { symbol: "🔬", delay: 1, radius: 200 },
+              { symbol: "💻", delay: 2, radius: 160 },
+              { symbol: "🔧", delay: 3, radius: 220 },
+              { symbol: "⚙️", delay: 4, radius: 190 }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                className="absolute text-2xl opacity-60 group-hover:opacity-100 pointer-events-none"
+                animate={{
+                  rotate: 360,
+                  x: Math.cos(index * 72 * Math.PI / 180) * item.radius,
+                  y: Math.sin(index * 72 * Math.PI / 180) * item.radius,
+                }}
+                transition={{
+                  duration: 10 + item.delay,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: item.delay
+                }}
+                style={{
+                  left: "50%",
+                  top: "50%",
+                  transformOrigin: "center"
+                }}
+              >
+                {item.symbol}
+              </motion.div>
+            ))}
+          </div>
               }}
             >
               {item.symbol}
