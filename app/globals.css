@@ -457,3 +457,83 @@ body {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  /* Ensure mobile viewport height works correctly */
+  .h-screen {
+    height: 100svh; /* Use small viewport height for mobile */
+    min-height: 100vh; /* Fallback */
+  }
+  
+  /* Improve mobile text readability */
+  .hero-content {
+    padding: 1rem;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
+  /* Better mobile button sizing */
+  .button-primary {
+    min-height: 44px; /* Ensure touch-friendly button size */
+    font-size: 0.875rem;
+  }
+  
+  /* Profile picture container improvements */
+  .profile-container {
+    max-width: min(250px, 80vw);
+    margin: 0 auto;
+  }
+  
+  /* Hide decorative elements on small screens */
+  .floating-elements {
+    display: none;
+  }
+  
+  /* Improve spacing on mobile */
+  .hero-spacing {
+    gap: 1rem;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .h-screen {
+    height: 100svh;
+    min-height: calc(100vh - env(safe-area-inset-bottom));
+  }
+  
+  /* Smaller text on very small screens */
+  .hero-title {
+    font-size: 1.5rem;
+    line-height: 1.3;
+  }
+  
+  /* Better paragraph spacing */
+  .hero-paragraph {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .h-screen {
+    height: 100vh;
+  }
+  
+  /* Adjust layout for landscape mobile */
+  .hero-content {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  
+  .profile-container {
+    max-width: 200px;
+  }
+}

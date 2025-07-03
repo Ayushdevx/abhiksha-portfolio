@@ -60,8 +60,8 @@ export const ModernNavbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
             <motion.div
               className="flex items-center space-x-3"
@@ -82,9 +82,9 @@ export const ModernNavbar = () => {
                     transition={{ duration: 3, repeat: Infinity }}
                   />
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden sm:block">
                   <motion.span 
-                    className="text-white font-bold text-xl bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent"
+                    className="text-white font-bold text-lg sm:text-xl bg-gradient-to-r from-white via-purple-200 to-cyan-200 bg-clip-text text-transparent"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
@@ -92,7 +92,7 @@ export const ModernNavbar = () => {
                     Abhiksha Bakshi
                   </motion.span>
                   <motion.p 
-                    className="text-purple-400 text-sm font-medium"
+                    className="text-purple-400 text-xs sm:text-sm font-medium"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.5 }}
@@ -127,10 +127,10 @@ export const ModernNavbar = () => {
             </div>
 
             {/* Action Buttons */}
-            <div className="hidden md:flex items-center space-x-3">
+            <div className="hidden sm:flex items-center space-x-3">
               <motion.button
                 onClick={downloadCV}
-                className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 text-white rounded-full text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 relative overflow-hidden group"
+                className="hidden lg:flex items-center space-x-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 text-white rounded-full text-xs sm:text-sm font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 relative overflow-hidden group"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 initial={{ opacity: 0, x: 20 }}
@@ -138,43 +138,43 @@ export const ModernNavbar = () => {
                 transition={{ delay: 0.6 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-cyan-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <ArrowDownTrayIcon className="w-4 h-4 relative z-10" />
+                <ArrowDownTrayIcon className="w-3 h-3 sm:w-4 sm:h-4 relative z-10" />
                 <span className="relative z-10">Download CV</span>
               </motion.button>
 
               <motion.a
                 href="mailto:abhiksha.bakshi2024@vitstudent.ac.in"
-                className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300"
+                className="p-2 sm:p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.7 }}
               >
-                <EnvelopeIcon className="w-5 h-5" />
+                <EnvelopeIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
 
               <motion.a
                 href="tel:+919619796620"
-                className="p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300"
+                className="p-2 sm:p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-gray-400 hover:text-cyan-400 hover:bg-cyan-500/10 transition-all duration-300"
                 whileHover={{ scale: 1.1 }}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.8 }}
               >
-                <PhoneIcon className="w-5 h-5" />
+                <PhoneIcon className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.a>
             </div>
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-3 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-white/10 transition-all duration-300"
+              className="sm:hidden p-2 bg-white/5 backdrop-blur-xl border border-white/10 rounded-full text-white hover:bg-white/10 transition-all duration-300"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
               {isMobileMenuOpen ? (
-                <XMarkIcon className="w-6 h-6" />
+                <XMarkIcon className="w-5 h-5" />
               ) : (
-                <Bars3Icon className="w-6 h-6" />
+                <Bars3Icon className="w-5 h-5" />
               )}
             </motion.button>
           </div>
@@ -192,7 +192,7 @@ export const ModernNavbar = () => {
           >
             <div className="absolute inset-0 bg-black/80 backdrop-blur-lg" />
             <motion.div
-              className="relative bg-black/30 backdrop-blur-2xl border-r border-purple-500/10 w-80 h-full p-6 shadow-2xl"
+              className="relative bg-black/30 backdrop-blur-2xl border-r border-purple-500/10 w-full sm:w-80 h-full p-4 sm:p-6 shadow-2xl"
               initial={{ x: -320 }}
               animate={{ x: 0 }}
               exit={{ x: -320 }}
